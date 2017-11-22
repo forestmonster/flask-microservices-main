@@ -2,7 +2,7 @@ version: '2.1'
 services:
     users-db:
         container_name: users-db
-        build: ./project/db
+        build: https://github.com/forestmonster/flask-microservices-users.git#master:project/db
         ports:
             - 5435:5432 # expose hostport:containerport
         environment:
@@ -12,9 +12,7 @@ services:
             test: exit 0 # Sent once the container's running
     users-service:
         container_name: users-service
-        build: ./
-        #volumes:
-        #    - '.:/usr/src/app'
+        build: https://github.com/forestmonster/flask-microservices-users.git
         expose:
             - '5000'
         environment:
